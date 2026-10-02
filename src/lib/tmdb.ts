@@ -20,8 +20,9 @@ async function tmdb<T>(
   params: Params = {},
   revalidate = 3600,
 ): Promise<T> {
-  const apiKey = process.env.TMDB_API_KEY;
-  if (!apiKey) throw new Error("Missing TMDB_API_KEY environment variable");
+  const apiKey = process.env.NEXT_TMDB_API_KEY;
+  if (!apiKey)
+    throw new Error("Missing NEXT_TMDB_API_KEY environment variable");
 
   const url = new URL(`${BASE_URL}${path}`);
   url.searchParams.set("api_key", apiKey);
