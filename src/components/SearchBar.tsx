@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import Icon from "./Icon";
-import { btn } from "@/lib/ui";
 
 interface Props {
   placeholder: string;
@@ -25,28 +24,27 @@ export default function SearchBar({ placeholder, onSearch, onReset }: Props) {
   };
 
   return (
-    <div className="mb-4 flex flex-col gap-2 sm:flex-row">
-      <form onSubmit={submit} className="flex flex-1">
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={placeholder}
-          aria-label={placeholder}
-          className="min-w-0 flex-1 rounded-l-md border border-line bg-surface px-3 py-2 placeholder:text-muted focus:border-primary focus:outline-none"
-        />
-        <button
-          type="submit"
-          aria-label="Tìm kiếm"
-          className={btn("primary", "md", "rounded-l-none")}
-        >
-          <Icon name="search" />
+    <form
+      onSubmit={submit}
+      className="mb-5 flex items-center gap-2 rounded-full border border-line bg-surface p-1.5 pl-5 transition focus-within:border-primary focus-within:shadow-lg focus-within:shadow-primary/20"
+    >
+      <Icon name="search" className="size-5 shrink-0 text-muted" />
+      <input
+        type="search"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={placeholder}
+        aria-label={placeholder}
+        className="min-w-0 flex-1 bg-transparent py-2 placeholder:text-muted focus:outline-none"
+      />
+      {query && (
+        <button type="button" onClick={reset} aria-label="Làm mới" className="grid size-9 place-items-center rounded-full text-muted hover:bg-surface-2 hover:text-foreground">
+          <Icon name="close" />
         </button>
-      </form>
-      <button type="button" onClick={reset} className={btn("ghost")}>
-        <Icon name="reset" />
-        Làm mới
+      )}
+      <button type="submit" className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition hover:bg-primary-hover">
+        Tìm kiếm
       </button>
-    </div>
+    </form>
   );
 }

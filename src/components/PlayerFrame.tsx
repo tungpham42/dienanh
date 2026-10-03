@@ -13,13 +13,8 @@ export default function PlayerFrame({ tmdbId, title, season, episode }: Props) {
   if (episode) params.set("e", episode);
 
   return (
-    <div className="aspect-video overflow-hidden rounded-lg shadow-lg">
-      <iframe
-        src={`${EMBED_URL}?${params}`}
-        title={title}
-        allowFullScreen
-        className="size-full"
-      />
+    <div className="aspect-video overflow-hidden rounded-xl border border-line bg-black shadow-2xl shadow-primary/20 ring-1 ring-primary/30">
+      <iframe src={`${EMBED_URL}?${params}`} title={title} allowFullScreen className="size-full" />
     </div>
   );
 }

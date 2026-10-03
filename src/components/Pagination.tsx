@@ -25,7 +25,7 @@ function PageButton({
       aria-label={label}
       onClick={onClick}
       disabled={disabled}
-      className="grid size-10 place-items-center rounded-md border border-line bg-surface text-foreground hover:bg-surface-2 disabled:cursor-not-allowed disabled:text-muted disabled:opacity-60"
+      className="grid size-10 place-items-center rounded-full border border-line bg-surface text-foreground hover:border-primary disabled:cursor-not-allowed disabled:text-muted disabled:opacity-60"
     >
       <Icon name={icon} />
     </button>
@@ -69,10 +69,10 @@ export default function Pagination({
           type="button"
           onClick={() => onPageChange(page)}
           aria-current={page === currentPage ? "page" : undefined}
-          className={`size-10 rounded-md border text-sm ${
+          className={`size-10 rounded-full border text-sm transition ${
             page === currentPage
-              ? "border-primary bg-primary text-white"
-              : "border-line bg-surface hover:bg-surface-2"
+              ? "border-primary bg-primary font-bold text-white shadow-lg shadow-primary/40"
+              : "border-line bg-surface hover:border-primary"
           }`}
         >
           {page}
