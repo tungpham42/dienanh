@@ -24,14 +24,14 @@ const categories = [
     href: "/phim-le",
     icon: "film",
     title: "Phim lẻ",
-    image: "/film.png",
+    image: "/film.svg",
     text: "Xem trọn vẹn trong một buổi tối.",
   },
   {
     href: "/phim-bo",
     icon: "tv",
     title: "Phim bộ",
-    image: "/tv.png",
+    image: "/tv.svg",
     text: "Hàn, Trung, Việt và nhiều hơn nữa, tập nào cũng muốn xem tiếp.",
   },
 ] as const;
@@ -41,7 +41,7 @@ export default function HomePage() {
     <>
       <section className="relative flex min-h-[80vh] items-center overflow-hidden">
         <Image
-          src="/banner.png"
+          src="/banner.svg"
           alt=""
           fill
           priority
